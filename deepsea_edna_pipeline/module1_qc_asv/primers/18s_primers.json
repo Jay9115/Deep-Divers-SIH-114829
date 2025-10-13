@@ -1,0 +1,57 @@
+{
+  "18s_primers": {
+    "description": "18S rRNA gene primer pairs for marine eukaryotic diversity",
+    "target_gene": "18S rRNA",
+    "primers": [
+      {
+        "name": "18S_V4_F",
+        "sequence": "CCAGCASCYGCGGTAATTCC",
+        "direction": "forward",
+        "position": "V4_region",
+        "reference": "Stoeck et al. 2010"
+      },
+      {
+        "name": "18S_V4_R", 
+        "sequence": "ACTTTCGTTCTTGATYRA",
+        "direction": "reverse",
+        "position": "V4_region",
+        "reference": "Stoeck et al. 2010"
+      },
+      {
+        "name": "18S_V9_F",
+        "sequence": "GTACACACCGCCCGTC",
+        "direction": "forward", 
+        "position": "V9_region",
+        "reference": "Amaral-Zettler et al. 2009"
+      },
+      {
+        "name": "18S_V9_R",
+        "sequence": "TGATCCTTCTGCAGGTTCACCTAC",
+        "direction": "reverse",
+        "position": "V9_region", 
+        "reference": "Amaral-Zettler et al. 2009"
+      }
+    ],
+    "primer_pairs": [
+      {
+        "forward": "18S_V4_F",
+        "reverse": "18S_V4_R",
+        "amplicon_length": "380-450bp",
+        "target_taxa": "Eukaryotes"
+      },
+      {
+        "forward": "18S_V9_F", 
+        "reverse": "18S_V9_R",
+        "amplicon_length": "130-200bp",
+        "target_taxa": "Eukaryotes"
+      }
+    ]
+  },
+  "processing_parameters": {
+    "min_primer_match": 0.8,
+    "max_primer_mismatch": 2,
+    "trim_primers": true,
+    "min_amplicon_length": 100,
+    "max_amplicon_length": 500
+  }
+}

@@ -1,0 +1,87 @@
+# Module 1: Quality Control and ASV Generation Configuration
+
+# Quality Control Parameters
+quality_control:
+  min_quality: 25          # Minimum Phred quality score
+  min_length: 50           # Minimum read length after trimming
+  max_expected_errors: 1.0 # Maximum expected errors per read
+  trim_poly_g: true        # Remove poly-G tails (Illumina)
+  trim_poly_x: true        # Remove poly-X sequences
+  cut_front: false         # Enable front cutting
+  cut_tail: false          # Enable tail cutting
+
+# Primer Trimming Parameters  
+primer_trimming:
+  max_error_rate: 0.1      # Maximum error rate for primer matching
+  min_overlap: 3           # Minimum overlap between primer and read
+  discard_untrimmed: false # Keep reads without detected primers
+  trim_n: true             # Trim N bases from ends
+
+# Read Merging Parameters (VSEARCH)
+read_merging:
+  min_overlap: 12          # Minimum overlap between R1 and R2
+  max_diffs: 5             # Maximum differences in overlap region  
+  max_length: 600          # Maximum length of merged reads
+  min_length: 100          # Minimum length of merged reads
+  max_ee: 1.0              # Maximum expected errors
+
+# DADA2 Parameters
+dada2:
+  pool: "pseudo"           # Pooling strategy: false, true, or "pseudo"
+  error_estimation_samples: 1000000  # Samples for error rate learning
+  chimera_method: "consensus"        # Chimera detection method
+  min_fold_parent_over_abundance: 1.5 # Abundance fold for chimera detection
+  allow_one_off: false     # Allow sequences with 1 difference
+
+# Chimera Removal Parameters
+chimera_removal:
+  abundance_skew: 2.0      # Abundance skew threshold for de novo detection
+  min_h: 0.28              # Minimum score (H) for chimera detection
+  use_reference: true      # Use reference-based detection if available
+  use_denovo: true         # Use de novo detection
+
+# Contamination Filtering Parameters
+contamination_filter:
+  prevalence_threshold: 0.1    # Max prevalence in negative controls
+  abundance_ratio: 0.5         # Max abundance ratio (neg/samples)
+  detection_threshold: 0.0001  # Min relative abundance for detection
+  remove_batch_effects: false  # Remove batch-associated contaminants
+
+# Length Filtering Parameters
+length_filtering:
+  min_asv_length: 100      # Minimum ASV length
+  max_asv_length: 500      # Maximum ASV length (marker-dependent)
+  
+  # Marker-specific length ranges
+  marker_ranges:
+    "18S":
+      min_length: 150
+      max_length: 450
+    "COI": 
+      min_length: 200
+      max_length: 700
+
+# Abundance Filtering Parameters
+abundance_filtering:
+  min_total_abundance: 10      # Minimum total reads across all samples
+  min_sample_prevalence: 2     # Minimum number of samples
+  min_relative_abundance: 0.0001  # Minimum relative abundance
+
+# Processing Parameters
+processing:
+  threads: 4               # Number of CPU threads to use
+  memory_gb: 8             # Maximum memory usage (GB)
+  temp_dir: null           # Temporary directory (null = system default)
+  keep_intermediate: false # Keep intermediate files
+
+# Output Parameters  
+output:
+  compress_fastq: true     # Gzip compress FASTQ outputs
+  save_plots: true         # Generate QC plots
+  detailed_logs: true      # Enable detailed logging
+  
+# Validation Parameters
+validation:
+  check_dependencies: true # Check required tools before running
+  validate_inputs: true   # Validate input file formats
+  min_sequences_per_sample: 1000  # Minimum sequences to proceed

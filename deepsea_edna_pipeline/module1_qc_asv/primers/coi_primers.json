@@ -1,0 +1,57 @@
+{
+  "coi_primers": {
+    "description": "COI (Cytochrome c oxidase subunit I) primer pairs for marine metazoan diversity",
+    "target_gene": "COI",
+    "primers": [
+      {
+        "name": "mlCOIintF",
+        "sequence": "GGWACWGGWTGAACWGTWTAYCCYCC",
+        "direction": "forward",
+        "position": "COI_5prime",
+        "reference": "Leray et al. 2013"
+      },
+      {
+        "name": "jgHCO2198",
+        "sequence": "TAIACYTCIGGRTGICCRAARAAYCA", 
+        "direction": "reverse",
+        "position": "COI_3prime",
+        "reference": "Geller et al. 2013"
+      },
+      {
+        "name": "COI_F",
+        "sequence": "TTCAACAAATCATAAAGATATTGG",
+        "direction": "forward",
+        "position": "COI_Folmer",
+        "reference": "Folmer et al. 1994"
+      },
+      {
+        "name": "COI_R",
+        "sequence": "TAAACTTCAGGGTGACCAAAAAATCA",
+        "direction": "reverse", 
+        "position": "COI_Folmer",
+        "reference": "Folmer et al. 1994"
+      }
+    ],
+    "primer_pairs": [
+      {
+        "forward": "mlCOIintF",
+        "reverse": "jgHCO2198", 
+        "amplicon_length": "313bp",
+        "target_taxa": "Metazoans"
+      },
+      {
+        "forward": "COI_F",
+        "reverse": "COI_R",
+        "amplicon_length": "658bp", 
+        "target_taxa": "Metazoans"
+      }
+    ]
+  },
+  "processing_parameters": {
+    "min_primer_match": 0.8,
+    "max_primer_mismatch": 2,
+    "trim_primers": true,
+    "min_amplicon_length": 200,
+    "max_amplicon_length": 700
+  }
+}

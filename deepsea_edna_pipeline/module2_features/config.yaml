@@ -1,0 +1,69 @@
+# Module 2: Feature Extraction Configuration
+
+# K-mer Analysis Parameters
+kmer:
+  k: 6                    # K-mer size
+  normalize: true         # Normalize k-mer frequencies
+  n_jobs: 4              # Number of parallel jobs
+  
+  # Distance metrics for comparison
+  distance_metrics:
+    - cosine
+    - euclidean
+    - js_divergence
+  
+  # Storage options
+  storage_format: numpy   # numpy, csv, hdf5
+  compress: true         # Compress output files
+
+# FCGR Parameters
+fcgr:
+  k: 8                   # K-mer size for FCGR resolution
+  size: 256              # Output image size (size x size)
+  normalize: frequency   # Normalization method
+  
+  # Image processing
+  apply_smoothing: false
+  gaussian_sigma: 1.0
+  
+  # Output options
+  save_images: false     # Save individual FCGR images
+  image_format: png      # Image format (png, jpg, tiff)
+
+# MinHash LSH Parameters  
+minhash:
+  num_perm: 128          # Number of permutations
+  threshold: 0.7         # Jaccard similarity threshold
+  
+  # LSH configuration
+  num_bands: 16          # Number of LSH bands
+  band_size: 8          # Size of each band
+
+# Feature Integration
+integration:
+  combine_features: true     # Combine k-mer and FCGR features
+  weight_kmer: 0.6          # Weight for k-mer features
+  weight_fcgr: 0.4          # Weight for FCGR features
+  
+  # Dimensionality reduction
+  apply_pca: false
+  pca_components: 100
+  
+  # Feature selection
+  feature_selection: false
+  selection_method: variance  # variance, mutual_info, chi2
+
+# Processing Parameters
+processing:
+  batch_size: 1000       # Sequences per batch
+  memory_limit_gb: 8     # Memory limit
+  temp_dir: null         # Temporary directory
+  
+# Output Configuration
+output:
+  feature_formats:       # Multiple output formats
+    - numpy
+    - hdf5
+  
+  save_metadata: true    # Save feature metadata
+  compress_output: true  # Compress output files
