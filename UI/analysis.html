@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Dashboard - DeepSea eDNA Explorer</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/analysis.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="brand-logo">
+                    <img src="images/deep-divers-logo.svg" alt="Deep Divers Logo" class="logo-img">
+                </div>
+                <span class="brand-text">DeepSea eDNA Explorer</span>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="#analysis" class="nav-link active">Analysis</a>
+                <a href="#download" class="nav-link">Download</a>
+                <a href="#settings" class="nav-link">Settings</a>
+                <a href="#help" class="nav-link">Help</a>
+                <a href="#about" class="nav-link">About</a>
+            </div>
+            <div class="nav-toggle">
+                <i class="fas fa-moon"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Dashboard -->
+    <main class="dashboard">
+        <div class="dashboard-container">
+            <!-- Dashboard Header -->
+            <div class="dashboard-header">
+                <h1>Deep-Sea eDNA Biodiversity Explorer</h1>
+                <p>Advanced taxonomic classification powered by ZHNSW algorithm</p>
+                
+                <!-- Success Message -->
+                <div class="success-message" id="successMessage">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Upload Complete: 3 sequences processed, 2 novel species detected</span>
+                </div>
+            </div>
+
+            <!-- Main Statistics -->
+            <div class="main-stats">
+                <div class="stat-card-large">
+                    <div class="stat-icon-large">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number-large" data-target="5000">0</div>
+                        <div class="stat-label-large">Total Sequences</div>
+                    </div>
+                </div>
+                <div class="stat-card-large novel">
+                    <div class="stat-icon-large">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number-large" data-target="773">0</div>
+                        <div class="stat-label-large">Novel Species</div>
+                        <div class="stat-sublabel">New discovery rate</div>
+                    </div>
+                </div>
+                <div class="stat-card-large confidence">
+                    <div class="stat-icon-large">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number-large" data-target="2139">0</div>
+                        <div class="stat-label-large">High Confidence</div>
+                        <div class="stat-sublabel">Reliable matches</div>
+                    </div>
+                </div>
+                <div class="stat-card-large average">
+                    <div class="stat-icon-large">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number-large" data-target="72">0</div>
+                        <div class="stat-label-large">Avg Confidence</div>
+                        <div class="stat-sublabel">Overall accuracy</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ZHNSW Algorithm Performance -->
+            <div class="algorithm-section">
+                <h2><i class="fas fa-cogs"></i> ZHNSW Algorithm Performance</h2>
+                
+                <!-- Algorithm Analysis Progress -->
+                <div class="algorithm-analysis">
+                    <h3>ZHNSW Algorithm Analysis</h3>
+                    <div class="analysis-steps">
+                        <div class="step active completed">
+                            <div class="step-circle">1</div>
+                            <div class="step-content">
+                                <h4>File Validation</h4>
+                                <p>Sequence extraction complete</p>
+                            </div>
+                        </div>
+                        <div class="step active completed">
+                            <div class="step-circle">2</div>
+                            <div class="step-content">
+                                <h4>Quality Assessment</h4>
+                                <p>Quality control passed</p>
+                            </div>
+                        </div>
+                        <div class="step active completed">
+                            <div class="step-circle">3</div>
+                            <div class="step-content">
+                                <h4>ZHNSW Index Search</h4>
+                                <p>Hierarchical search completed</p>
+                            </div>
+                        </div>
+                        <div class="step active">
+                            <div class="step-circle">4</div>
+                            <div class="step-content">
+                                <h4>Taxonomic Classification</h4>
+                                <p>Processing taxonomic assignments...</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-circle">5</div>
+                            <div class="step-content">
+                                <h4>Biogeographic Assignment</h4>
+                                <p>Pending</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-circle">6</div>
+                            <div class="step-content">
+                                <h4>Analysis Complete</h4>
+                                <p>Pending</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Control Buttons -->
+                    <div class="analysis-controls">
+                        <button class="btn btn-danger" id="pauseBtn">
+                            <i class="fas fa-pause"></i>
+                            Pause Analysis
+                        </button>
+                        <button class="btn btn-secondary" id="resetBtn">
+                            <i class="fas fa-redo"></i>
+                            Reset
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Query Input Section -->
+                <div class="query-section">
+                    <h3>Query Input</h3>
+                    <p>New eDNA sequence uploaded for analysis</p>
+                </div>
+            </div>
+
+            <!-- Zone Grid System -->
+            <div class="zone-system">
+                <div class="zone-header">
+                    <h2>Zone Grid (64 Zones)</h2>
+                    <div class="zone-controls">
+                        <button class="btn btn-outline" id="zoomInBtn">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                        <button class="btn btn-outline" id="zoomOutBtn">
+                            <i class="fas fa-search-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="zone-grid" id="zoneGrid">
+                    <!-- Zone grid will be generated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Parallel Search Details -->
+            <div class="parallel-search">
+                <h2>Parallel Search</h2>
+                <p>Search within selected zones simultaneously</p>
+                
+                <div class="search-zones">
+                    <div class="search-zone">
+                        <h3>Zone 12</h3>
+                        <h4>Sequence Analysis</h4>
+                        <div class="sequence-list">
+                            <div class="sequence-item match">
+                                <span class="sequence-id">seq_001238</span>
+                                <span class="match-status">97% match</span>
+                            </div>
+                            <div class="sequence-item processing">
+                                <span class="sequence-id">seq_001251</span>
+                                <span class="match-status">processing...</span>
+                            </div>
+                            <div class="sequence-item low-match">
+                                <span class="sequence-id">seq_001253</span>
+                                <span class="match-status">18% match</span>
+                            </div>
+                            <div class="sequence-item match">
+                                <span class="sequence-id">seq_001255</span>
+                                <span class="match-status">74% match</span>
+                            </div>
+                            <div class="sequence-item match">
+                                <span class="sequence-id">seq_001264</span>
+                                <span class="match-status">92% match</span>
+                            </div>
+                        </div>
+                        <div class="zone-progress">
+                            <div class="progress-text">Progress</div>
+                            <div class="progress-numbers">1260 / 1520 sequences 86% complete</div>
+                        </div>
+                        <div class="zone-matches">
+                            <div class="matches-found">
+                                <span class="match-number">23</span>
+                                <span class="match-label">Total Matches</span>
+                            </div>
+                            <div class="match-confidence">
+                                <span class="confidence-number">89%</span>
+                                <span class="confidence-label">Top Match</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="search-zone">
+                        <h3>Zone 34</h3>
+                        <h4>Sequence Analysis</h4>
+                        <div class="sequence-list">
+                            <div class="sequence-item match">
+                                <span class="sequence-id">seq_001356</span>
+                                <span class="match-status">67% match</span>
+                            </div>
+                            <div class="sequence-item processing">
+                                <span class="sequence-id">seq_001363</span>
+                                <span class="match-status">processing...</span>
+                            </div>
+                            <div class="sequence-item low-match">
+                                <span class="sequence-id">seq_001371</span>
+                                <span class="match-status">14% match</span>
+                            </div>
+                            <div class="sequence-item match">
+                                <span class="sequence-id">seq_001385</span>
+                                <span class="match-status">84% match</span>
+                            </div>
+                            <div class="sequence-item match">
+                                <span class="sequence-id">seq_001394</span>
+                                <span class="match-status">91% match</span>
+                            </div>
+                        </div>
+                        <div class="zone-progress">
+                            <div class="progress-text">Progress</div>
+                            <div class="progress-numbers">1030 / 1320 sequences 80% complete</div>
+                        </div>
+                        <div class="zone-matches">
+                            <div class="matches-found">
+                                <span class="match-number">31</span>
+                                <span class="match-label">Total Matches</span>
+                            </div>
+                            <div class="match-confidence">
+                                <span class="confidence-number">86%</span>
+                                <span class="confidence-label">Top Match</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="search-zone">
+                        <h3>Zone 7</h3>
+                        <h4>Sequence Analysis</h4>
+                        <div class="sequence-list">
+                            <div class="sequence-item match">
+                                <span class="sequence-id">seq_001456</span>
+                                <span class="match-status">59% match</span>
+                            </div>
+                            <div class="sequence-item processing">
+                                <span class="sequence-id">seq_001461</span>
+                                <span class="match-status">processing...</span>
+                            </div>
+                            <div class="sequence-item low-match">
+                                <span class="sequence-id">seq_001468</span>
+                                <span class="match-status">9% match</span>
+                            </div>
+                            <div class="sequence-item match">
+                                <span class="sequence-id">seq_001473</span>
+                                <span class="match-status">71% match</span>
+                            </div>
+                            <div class="sequence-item match">
+                                <span class="sequence-id">seq_001485</span>
+                                <span class="match-status">88% match</span>
+                            </div>
+                        </div>
+                        <div class="zone-progress">
+                            <div class="progress-text">Progress</div>
+                            <div class="progress-numbers">2855 / 2950 sequences 95% complete</div>
+                        </div>
+                        <div class="zone-matches">
+                            <div class="matches-found">
+                                <span class="match-number">39</span>
+                                <span class="match-label">Total Matches</span>
+                            </div>
+                            <div class="match-confidence">
+                                <span class="confidence-number">83%</span>
+                                <span class="confidence-label">Top Match</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step Details -->
+            <div class="step-details">
+                <h2>Step Details</h2>
+                <div class="current-step">
+                    <span class="step-badge">Processing step 1...</span>
+                </div>
+                
+                <div class="query-sequence">
+                    <h3>Query Sequence</h3>
+                    <div class="sequence-info">
+                        <div class="info-item">
+                            <span class="info-label">Sequence ID:</span>
+                            <span class="info-value">uploaded_seq_001</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Length:</span>
+                            <span class="info-value">268 bp</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Integrated Output Layer -->
+            <div class="output-layer-section" id="outputLayer" style="display: none;">
+                <h2><i class="fas fa-layer-group"></i> Integrated Output Layer</h2>
+                <p class="output-description">Comprehensive analysis results with data outputs, reproducibility features, and visualization components</p>
+                
+                <div class="output-categories">
+                    <!-- Data Outputs -->
+                    <div class="output-category">
+                        <h3><i class="fas fa-database"></i> Data Outputs</h3>
+                        <div class="output-grid">
+                            <div class="output-item">
+                                <div class="output-header">
+                                    <i class="fas fa-table"></i>
+                                    <h4>asv_table.biom</h4>
+                                </div>
+                                <p>BIOM v2.1 format</p>
+                                <p>Corrected abundance</p>
+                                <div class="output-actions">
+                                    <button class="btn btn-outline btn-sm" onclick="downloadFile('asv_table.biom')">
+                                        <i class="fas fa-download"></i> Download
+                                    </button>
+                                    <button class="btn btn-outline btn-sm" onclick="previewFile('asv_table')">
+                                        <i class="fas fa-eye"></i> Preview
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="output-item">
+                                <div class="output-header">
+                                    <i class="fas fa-sitemap"></i>
+                                    <h4>taxonomy.tsv</h4>
+                                </div>
+                                <p>Kingdom → Species</p>
+                                <p>Confidence | Tier</p>
+                                <div class="output-actions">
+                                    <button class="btn btn-outline btn-sm" onclick="downloadFile('taxonomy.tsv')">
+                                        <i class="fas fa-download"></i> Download
+                                    </button>
+                                    <button class="btn btn-outline btn-sm" onclick="previewFile('taxonomy')">
+                                        <i class="fas fa-eye"></i> Preview
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="output-item">
+                                <div class="output-header">
+                                    <i class="fas fa-dna"></i>
+                                    <h4>novel_taxa.md</h4>
+                                </div>
+                                <p>Characterization</p>
+                                <p>Priority ranking</p>
+                                <div class="output-actions">
+                                    <button class="btn btn-outline btn-sm" onclick="downloadFile('novel_taxa.md')">
+                                        <i class="fas fa-download"></i> Download
+                                    </button>
+                                    <button class="btn btn-outline btn-sm" onclick="previewFile('novel_taxa')">
+                                        <i class="fas fa-eye"></i> Preview
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="output-item">
+                                <div class="output-header">
+                                    <i class="fas fa-file-alt"></i>
+                                    <h4>sequences.fasta</h4>
+                                </div>
+                                <p>Representative ASVs</p>
+                                <p>Metadata headers</p>
+                                <div class="output-actions">
+                                    <button class="btn btn-outline btn-sm" onclick="downloadFile('sequences.fasta')">
+                                        <i class="fas fa-download"></i> Download
+                                    </button>
+                                    <button class="btn btn-outline btn-sm" onclick="previewFile('sequences')">
+                                        <i class="fas fa-eye"></i> Preview
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reproducibility -->
+                    <div class="output-category">
+                        <h3><i class="fas fa-sync"></i> Reproducibility</h3>
+                        <div class="output-grid">
+                            <div class="output-item">
+                                <div class="output-header">
+                                    <i class="fas fa-tree"></i>
+                                    <h4>phyloseq.rds</h4>
+                                </div>
+                                <p>R metagenome</p>
+                                <p>Metadata included</p>
+                                <div class="output-actions">
+                                    <button class="btn btn-outline btn-sm" onclick="downloadFile('phyloseq.rds')">
+                                        <i class="fas fa-download"></i> Download
+                                    </button>
+                                    <button class="btn btn-outline btn-sm" onclick="openREnvironment()">
+                                        <i class="fab fa-r-project"></i> Open in R
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="output-item">
+                                <div class="output-header">
+                                    <i class="fas fa-cog"></i>
+                                    <h4>processing.log</h4>
+                                </div>
+                                <p>Parameters</p>
+                                <p>Versions | Timestamps</p>
+                                <div class="output-actions">
+                                    <button class="btn btn-outline btn-sm" onclick="downloadFile('processing.log')">
+                                        <i class="fas fa-download"></i> Download
+                                    </button>
+                                    <button class="btn btn-outline btn-sm" onclick="viewLog()">
+                                        <i class="fas fa-file-alt"></i> View Log
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Visualization Outputs -->
+                    <div class="output-category">
+                        <h3><i class="fas fa-chart-bar"></i> Visualization Outputs</h3>
+                        <div class="output-grid">
+                            <div class="output-item visualization-item">
+                                <div class="output-header">
+                                    <i class="fas fa-globe"></i>
+                                    <h4>interactive.html</h4>
+                                </div>
+                                <div class="visualization-features">
+                                    <div class="feature-tag">UMAP embeddings</div>
+                                    <div class="feature-tag">Diversity plots</div>
+                                    <div class="feature-tag">Taxonomy sunburst</div>
+                                    <div class="feature-tag">Taxonomy stats</div>
+                                </div>
+                                <p class="viz-description">Interactive dashboard with multidimensional analysis and real-time exploration capabilities</p>
+                                <div class="output-actions">
+                                    <button class="btn btn-primary btn-sm" onclick="openVisualization('interactive')">
+                                        <i class="fas fa-external-link-alt"></i> Launch Interactive
+                                    </button>
+                                    <button class="btn btn-outline btn-sm" onclick="downloadFile('interactive.html')">
+                                        <i class="fas fa-download"></i> Download
+                                    </button>
+                                    <button class="btn btn-outline btn-sm" onclick="previewVisualization('interactive')">
+                                        <i class="fas fa-eye"></i> Preview
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="output-item visualization-item">
+                                <div class="output-header">
+                                    <i class="fas fa-images"></i>
+                                    <h4>figures/</h4>
+                                </div>
+                                <div class="visualization-features">
+                                    <div class="feature-tag">300 DPI PNG/PDF</div>
+                                    <div class="feature-tag">Publication-ready</div>
+                                    <div class="feature-tag">Custom color schemes</div>
+                                </div>
+                                <p class="viz-description">High-resolution static figures optimized for scientific publication and presentation</p>
+                                <div class="figure-list">
+                                    <div class="figure-item-small">
+                                        <i class="fas fa-chart-scatter"></i>
+                                        <span>UMAP_plot.png</span>
+                                    </div>
+                                    <div class="figure-item-small">
+                                        <i class="fas fa-chart-pie"></i>
+                                        <span>taxonomy_sunburst.pdf</span>
+                                    </div>
+                                    <div class="figure-item-small">
+                                        <i class="fas fa-chart-bar"></i>
+                                        <span>diversity_analysis.png</span>
+                                    </div>
+                                    <div class="figure-item-small">
+                                        <i class="fas fa-table"></i>
+                                        <span>taxonomy_stats.pdf</span>
+                                    </div>
+                                </div>
+                                <div class="output-actions">
+                                    <button class="btn btn-primary btn-sm" onclick="downloadFigures()">
+                                        <i class="fas fa-download"></i> Download All
+                                    </button>
+                                    <button class="btn btn-outline btn-sm" onclick="previewFigures()">
+                                        <i class="fas fa-images"></i> Gallery
+                                    </button>
+                                    <button class="btn btn-outline btn-sm" onclick="customizeFigures()">
+                                        <i class="fas fa-palette"></i> Customize
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Download All Button -->
+                <div class="download-all-section">
+                    <button class="btn btn-primary btn-large" onclick="downloadAllResults()">
+                        <i class="fas fa-download"></i>
+                        Download Complete Analysis Package
+                    </button>
+                    <p class="download-note">Includes all data outputs, reproducibility files, and visualizations in a single ZIP archive</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/script.js"></script>
+    <script src="js/analysis.js"></script>
+</body>
+</html>

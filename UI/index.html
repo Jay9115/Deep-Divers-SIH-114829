@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepSea eDNA Explorer - Revolutionary AI-driven Biodiversity Platform</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="brand-logo">
+                    <img src="images/deep-divers-logo.svg" alt="Deep Divers Logo" class="logo-img">
+                </div>
+                <span class="brand-text">DeepSea eDNA Explorer</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#analysis" class="nav-link">Analysis</a>
+                <a href="#download" class="nav-link">Download</a>
+                <a href="#settings" class="nav-link">Settings</a>
+                <a href="#help" class="nav-link">Help</a>
+                <a href="#about" class="nav-link">About</a>
+            </div>
+            <div class="nav-toggle">
+                <i class="fas fa-moon"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Deep-Sea eDNA
+                        <span class="gradient-text">Biodiversity Explorer</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Revolutionary AI-driven platform using <strong>Zonal HNSW algorithm</strong> to identify 
+                        taxonomy and assess biodiversity from environmental DNA datasets. Discover 
+                        the unknown depths of marine life with unprecedented speed and accuracy.
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" id="uploadBtn">
+                            <i class="fas fa-upload"></i>
+                            Upload eDNA Sample
+                        </button>
+                        <button class="btn btn-secondary" id="demoBtn">
+                            <i class="fas fa-play"></i>
+                            View Demo Analysis
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="scientist-avatar">
+                        <div class="avatar-container">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="stat-number" data-target="250000">0</div>
+                    <div class="stat-label">Sequences Analyzed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="stat-number" data-target="1240">0</div>
+                    <div class="stat-label">Novel Species Found</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <div class="stat-number" data-target="94">0</div>
+                    <div class="stat-label">Search Speed Improvement</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="stat-number" data-target="64">0</div>
+                    <div class="stat-label">Active Zones</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="technology-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Revolutionary ZHNSW Technology</h2>
+                <p class="section-subtitle">Solving the database limitation problem in deep-sea biodiversity research</p>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Zonal Partitioning</h3>
+                    <p>Intelligent division of billion-scale datasets into manageable zones, dramatically reducing search complexity and memory usage.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Lightning-Fast Search</h3>
+                    <p>98.9% faster than traditional exhaustive search methods while maintaining 98.7% accuracy through smart zone selection algorithms.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h3>Novel Species Discovery</h3>
+                    <p>Advanced algorithms bridge knowledge gaps in marine biodiversity, enabling discovery of unknown deep-sea organisms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deep Sea Species Section -->
+    <section class="species-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Deep Sea Species</h2>
+                <p class="section-subtitle">Discover the mysterious creatures of the deep ocean</p>
+            </div>
+            
+            <div class="species-grid">
+                <div class="species-card" data-species="vampire-squid">
+                    <div class="species-image">
+                        <div class="species-depth">500-3000m</div>
+                        <div class="species-placeholder vampire-squid"></div>
+                    </div>
+                    <div class="species-info">
+                        <h3>Vampire Squid</h3>
+                        <p class="species-name">Vampyroteuthis infernalis</p>
+                        <p class="species-description">A unique cephalopod that inhabits the deep ocean with light-producing organs and webbed arms.</p>
+                    </div>
+                </div>
+
+                <div class="species-card" data-species="anglerfish">
+                    <div class="species-image">
+                        <div class="species-depth">200-2000m</div>
+                        <div class="species-placeholder anglerfish"></div>
+                    </div>
+                    <div class="species-info">
+                        <h3>Anglerfish</h3>
+                        <p class="species-name">Lophiiformes</p>
+                        <p class="species-description">Known for its bioluminescent lure that attracts prey in the dark depths.</p>
+                    </div>
+                </div>
+
+                <div class="species-card" data-species="giant-tube-worm">
+                    <div class="species-image">
+                        <div class="species-depth">2000-2800m</div>
+                        <div class="species-placeholder giant-tube-worm"></div>
+                    </div>
+                    <div class="species-info">
+                        <h3>Giant Tube Worm</h3>
+                        <p class="species-name">Riftia pachyptila</p>
+                        <p class="species-description">Thrives near hydrothermal vents and relies on symbiotic bacteria for nutrition.</p>
+                    </div>
+                </div>
+
+                <div class="species-card" data-species="deep-sea-jellyfish">
+                    <div class="species-image">
+                        <div class="species-depth">1000-4000m</div>
+                        <div class="species-placeholder deep-sea-jellyfish"></div>
+                    </div>
+                    <div class="species-info">
+                        <h3>Deep Sea Jellyfish</h3>
+                        <p class="species-name">Atolla jellyfish</p>
+                        <p class="species-description">Transparent gelatinous creature with bioluminescent capabilities for defense.</p>
+                    </div>
+                </div>
+
+                <div class="species-card" data-species="dumbo-octopus">
+                    <div class="species-image">
+                        <div class="species-depth">3000-7000m</div>
+                        <div class="species-placeholder dumbo-octopus"></div>
+                    </div>
+                    <div class="species-info">
+                        <h3>Dumbo Octopus</h3>
+                        <p class="species-name">Grimpoteuthis</p>
+                        <p class="species-description">Deepest living octopus with ear-like fins that propel it through the water.</p>
+                    </div>
+                </div>
+
+                <div class="species-card" data-species="barreleye-fish">
+                    <div class="species-image">
+                        <div class="species-depth">600-800m</div>
+                        <div class="species-placeholder barreleye-fish"></div>
+                    </div>
+                    <div class="species-info">
+                        <h3>Barreleye Fish</h3>
+                        <p class="species-name">Macropinna microstoma</p>
+                        <p class="species-description">Features a transparent head and tubular eyes that can rotate upward.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Statement Section -->
+    <section class="problem-section">
+        <div class="container">
+            <div class="problem-content">
+                <div class="problem-text">
+                    <h2>Addressing Real-World Challenges</h2>
+                    <p class="problem-subtitle">Smart India Hackathon Problem Statement #25042</p>
+                    
+                    <div class="problem-details">
+                        <h3>The Deep-Sea Database Problem</h3>
+                        <p>Traditional eDNA analysis relies heavily on reference databases like SILVA, PR2, and NCBI, which are poorly represented for deep-sea organisms.</p>
+                        
+                        <p>Existing pipelines (QIIME2, DADA2, mothur) struggle with novel taxa, leading to:</p>
+                        <ul>
+                            <li>Misclassifications of unknown species</li>
+                            <li>Underestimation of biodiversity</li>
+                            <li>Long computational processing times</li>
+                            <li>High memory requirements</li>
+                        </ul>
+                        
+                        <p class="solution-highlight">
+                            Our <strong>ZHNSW solution</strong> addresses all these challenges with minimal database dependency.
+                        </p>
+                    </div>
+                </div>
+                <div class="performance-metrics">
+                    <h3>Performance Comparison</h3>
+                    <div class="metrics-grid">
+                        <div class="metric-item">
+                            <span class="metric-label">Search Speed</span>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 98.9%"></div>
+                                <span class="metric-value">98.9% faster</span>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Memory Usage</span>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 77%"></div>
+                                <span class="metric-value">77% reduction</span>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Accuracy</span>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 98.7%"></div>
+                                <span class="metric-value">98.7% maintained</span>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Novel Discovery</span>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 100%"></div>
+                                <span class="metric-value">+340% improved</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="brand-logo">
+                        <img src="images/deep-divers-logo.svg" alt="Deep Divers Logo" class="logo-img">
+                    </div>
+                    <span class="brand-text">DeepSea eDNA Explorer</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Terms of Service</a>
+                    <a href="#" class="footer-link">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 DeepSea eDNA Explorer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Upload Modal -->
+    <div class="modal" id="uploadModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Upload eDNA Sample</h3>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="upload-area" id="uploadArea">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>Drag and drop your eDNA sequence file here or click to browse</p>
+                    <input type="file" id="fileInput" accept=".fasta,.fastq,.fa,.fq" hidden>
+                    <button class="btn btn-outline" onclick="document.getElementById('fileInput').click()">
+                        Choose File
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Species Detail Modal -->
+    <div class="modal" id="speciesModal">
+        <div class="modal-content species-modal-content">
+            <div class="modal-header">
+                <h3 id="speciesModalTitle">Species Details</h3>
+                <span class="modal-close" id="speciesModalClose">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="species-detail-content" id="speciesDetailContent">
+                    <!-- Species details will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
