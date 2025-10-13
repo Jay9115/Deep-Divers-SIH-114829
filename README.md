@@ -1,4 +1,4 @@
-# Deep-Sea eDNA Analysis Pipeline
+# Deep-Sea eDNA Analysis Pipeline SIH - 25042 ID-114829
 
 **AI-Driven Environmental DNA Analysis for Deep-Sea Biodiversity Assessment**
 
@@ -30,8 +30,8 @@ Unlike traditional pipelines that rely heavily on reference databases (QIIME2, m
 INPUT LAYER → QC & ASV → FEATURE EXTRACTION → CLASSIFICATION → ABUNDANCE → ECOLOGY → OUTPUT
      ↓             ↓              ↓               ↓            ↓          ↓         ↓
   FASTQ Files   Module 1       Module 2       Module 3     Module 4   Module 5  Reports
-  Metadata                                                                        & Viz
-  Controls                                    (GPU)
+  Metadata                                     (GPU)                            & Viz
+  Controls                                    
 ```
 
 ### Processing Modules
@@ -212,12 +212,14 @@ deepsea_edna_pipeline/
 
 ## 🎥 Demo Video
 
-[![Deep-Sea eDNA Pipeline Demo](https://img.youtube.com/vi/YOUR_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
+[![Deep-Sea eDNA Pipeline Demo]https://youtu.be/snCmFntzEFY)](https://youtu.be/snCmFntzEFY)
 
 *Click above to watch our pipeline demonstration*
 
 ---
-
+## Full Architecture
+ ![Architecture](SIH-2025\Deep-Divers-SIH-114829\FUll_Architecture.png)
+---
 ## 👥 Team Information
 
 **Team Name:** Deep Divers  
@@ -228,7 +230,7 @@ deepsea_edna_pipeline/
 
 | Role | Name | College ID |
 |------|------|-----------|
-| **Team Leader** | Mahi Patel | 23DCS076 |
+| **Team Leader** | Mahi Patel | 23DCS081 |
 | Member | Jay Patel | 23DCS076 |
 | Member | Samarth Patel | 23DCS089 |
 | Member | Shubh Patel | 23DCS092 |
