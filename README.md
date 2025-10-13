@@ -212,13 +212,13 @@ deepsea_edna_pipeline/
 
 ## 🎥 Demo Video
 
-[![Deep-Sea eDNA Pipeline Demo]https://youtu.be/snCmFntzEFY)](https://youtu.be/snCmFntzEFY)
+[![Deep-Sea eDNA Pipeline Demo](https://youtu.be/snCmFntzEFY)](https://youtu.be/snCmFntzEFY)
 
 *Click above to watch our pipeline demonstration*
 
 ---
 ## Full Architecture
- ![Architecture](SIH-2025\Deep-Divers-SIH-114829\FUll_Architecture.png)
+![System Architecture](./Full_Architecture.png)
 ---
 ## 👥 Team Information
 
