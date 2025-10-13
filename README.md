@@ -217,9 +217,6 @@ deepsea_edna_pipeline/
 *Click above to watch our pipeline demonstration*
 
 ---
-## Full Architecture
-![System Architecture](./Full_Architecture.png)
----
 ## 👥 Team Information
 
 **Team Name:** Deep Divers  
